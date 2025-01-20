@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan EMI Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background">
+    <div class="container">
+      <h1>Loan EMI Calculator</h1>
+      <form id="emiForm" onsubmit="return false;">
+        <div class="form-group">
+          <label for="loanAmount">Loan Amount (₹):</label>
+          <input type="number" id="loanAmount" placeholder="Enter loan amount" required min="0.01" aria-label="Loan Amount">
+          <span id="loanAmountError" class="error hidden">Please enter a valid loan amount greater than zero.</span>
+        </div>
+        <div class="form-group">
+          <label for="interestRate">Annual Interest Rate (%):</label>
+          <input type="number" id="interestRate" placeholder="Enter interest rate" required min="0.01" aria-label="Interest Rate">
+          <span id="interestRateError" class="error hidden">Please enter a valid interest rate greater than zero.</span>
+        </div>
+        <div class="form-group">
+          <label for="loanTenure">Loan Tenure (years):</label>
+          <input type="number" id="loanTenure" placeholder="Enter loan tenure" required min="0.01" aria-label="Loan Tenure">
+          <span id="loanTenureError" class="error hidden">Please enter a valid loan tenure greater than zero.</span>
+        </div>
+        <div class="button-group">
+          <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+          <button type="button" onclick="resetForm()">Reset</button>
+        </div>
+      </form>
+      <div id="result" class="result hidden">
+        <h2>EMI Details</h2>
+        <p id="emiAmount">Monthly EMI: ₹<span>0.00</span></p>
+        <p id="totalPayment">Total Payment (Principal + Interest): ₹<span>0.00</span></p>
+        <p id="totalInterest">Total Interest Payable: ₹<span>0.00</span></p>
+      </div>
+    </div>
+  </div>
+  <div id="loadingSpinner" class="hidden">Loading...</div>
+  <div id="overlay" class="overlay hidden"></div>
+  <script src="script.js"></script>
+</body>
+</html>
